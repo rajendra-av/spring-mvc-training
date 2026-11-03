@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>customer-api</artifactId>
+    <groupId>com.springmvc.training</groupId>
+    <artifactId>spring-mvc-training</artifactId>
     <version>1.0.0</version>
     <packaging>war</packaging>
 
@@ -69,8 +69,10 @@
     </dependencies>
 
     <build>
-        <finalName>customer-api</finalName>
+        <!-- fixes the WAR name, and the WAR name becomes the URL context path. -->
+        <finalName>spring-mvc-training</finalName>
         <plugins>
+        <!-- for compiling your Java source code-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -79,6 +81,7 @@
                     <parameters>true</parameters>
                 </configuration>
             </plugin>
+        <!-- for packaging your application as a WAR file -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>

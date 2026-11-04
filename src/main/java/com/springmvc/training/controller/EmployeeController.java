@@ -5,6 +5,7 @@ import com.springmvc.training.dto.EmployeeResponse;
 import com.springmvc.training.dto.UpdateEmployeeRequest;
 import com.springmvc.training.service.EmployeeService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Positive;
 import java.net.URI;
 import java.util.List;
 import org.slf4j.Logger;
@@ -44,7 +45,7 @@ public class EmployeeController {
 
     // GET /employees/1
     @GetMapping("/{id}")
-    public EmployeeResponse get(@PathVariable Long id) {
+    public EmployeeResponse get(@PathVariable @Positive Long id) {
         log.debug("controller: get({})", id);   // used later to trace the request flow
         return service.get(id);
     }
@@ -63,7 +64,7 @@ public class EmployeeController {
 
     // PUT /employees/1, replaces the employee
     @PutMapping("/{id}")
-    public EmployeeResponse update(@PathVariable Long id,
+    public EmployeeResponse update(@PathVariable @Positive Long id,
                                    @Valid @RequestBody UpdateEmployeeRequest request) {
         return service.update(id, request);
     }
@@ -71,7 +72,7 @@ public class EmployeeController {
     // DELETE /employees/1
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)   // 204, no body
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable @Positive Long id) {
         service.delete(id);
     }
 }

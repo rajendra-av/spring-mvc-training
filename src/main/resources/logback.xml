@@ -5,7 +5,7 @@
         </encoder>
     </appender>
 
-    <logger name="com.example.customerapi" level="DEBUG"/>
+    <logger name="com.springmvc.training" level="DEBUG"/>
     <!-- Change to DEBUG to see each request being mapped to a handler -->
     <logger name="org.springframework.web" level="INFO"/>
 

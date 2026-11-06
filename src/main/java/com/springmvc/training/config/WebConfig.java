@@ -1,9 +1,11 @@
 package com.springmvc.training.config;
 
 
+import com.springmvc.training.interceptor.LoggingInterceptor;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
@@ -15,5 +17,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 })
 public class WebConfig implements WebMvcConfigurer {
 
-    // Later: override addInterceptors(InterceptorRegistry registry) to register the interceptor.
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LoggingInterceptor())
+                .addPathPatterns("/**");
+    }
 }

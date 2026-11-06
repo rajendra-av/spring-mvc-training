@@ -9,8 +9,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-// @Component makes it a bean, found by the scan of the "interceptor" package in WebConfig
-@Component
+
 public class LoggingInterceptor implements HandlerInterceptor {
 
     private static final Logger log = LoggerFactory.getLogger(LoggingInterceptor.class);
